@@ -18,6 +18,7 @@ public class RatAgent : Agent
     public override void AgentReset()
     {
       this.transform.position = new Vector3(0f,0.5f,0f);
+      rbody.AddForce(Vector3.zero);
     }
 
     public override void AgentAction(float[] vectorAction, string textAction)
@@ -29,9 +30,11 @@ public class RatAgent : Agent
         if (brain.brainParameters.vectorActionSpaceType == SpaceType.continuous)
         {
             absDir = Mathf.Clamp(vectorAction[0], -1f, 1f);
-            dir = transform.position * absDir;
+            // dir += new Vector3(this.transform.position.x * absDir,0,0); 
 
-            // rotateDir = transform.up * Mathf.Clamp(vectorAction[1], -1f, 1f);
+            rotateDir = transform.up * Mathf.Clamp(vectorAction[1], -1f, 1f);
+            dir = new Vector3(absDir * speed,0.0f,0.0f);
+            
         }
         // else
         // {
