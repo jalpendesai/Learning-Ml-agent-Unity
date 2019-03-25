@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: LearningRat
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 1
-    numStackedVectorObservations: 1
-    vectorActionSize: 01000000
+    vectorObservationSize: 56
+    numStackedVectorObservations: 3
+    vectorActionSize: 07000000
     cameraResolutions: []
-    vectorActionDescriptions: []
+    vectorActionDescriptions:
+    - 
     vectorActionSpaceType: 0
-  model: {fileID: 0}
+  model: {fileID: 11400000, guid: d923b5f6fdb606149ab82b198c592c23, type: 3}
   inferenceDevice: 0

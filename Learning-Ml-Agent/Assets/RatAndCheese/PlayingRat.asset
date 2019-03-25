@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayingRat
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 0
+    vectorObservationSize: 56
     numStackedVectorObservations: 3
     vectorActionSize: 07000000
     cameraResolutions: []
