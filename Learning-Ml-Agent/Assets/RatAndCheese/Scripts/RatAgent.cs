@@ -17,50 +17,54 @@ public class RatAgent : Agent
 
     public override void AgentReset()
     {
-      this.transform.position = new Vector3(0f,0.5f,0f);
-      rbody.AddForce(Vector3.zero);
+        int rotation = Random.Range(0,4);
+        float rotateAngle = rotation * 90f;
+        
+        this.transform.position = new Vector3(0f, 0.5f, 0f);
+        rbody.velocity = Vector3.zero;
+        rbody.angularVelocity = Vector3.zero;
+    }
+
+    public void MoveAgent(float[] act)
+    {
+        Vector3 dirToGo = Vector3.zero;
+        Vector3 rotateDir = Vector3.zero;
+
+        int action = Mathf.FloorToInt(act[0]);
+
+        switch (action)
+        {
+            case 1:
+                dirToGo = transform.forward * 1f;
+                break;
+            case 2:
+                dirToGo = transform.forward * -1f;
+                break;
+            case 3:
+                rotateDir = transform.up * 1f;
+                break;
+            case 4:
+                rotateDir = transform.up * -1f;
+                break;
+            case 5:
+                dirToGo = transform.right * -0.75f;
+                break;
+            case 6:
+                dirToGo = transform.right * 0.75f;
+                break;
+        }
+        transform.Rotate(rotateDir, Time.fixedDeltaTime * 200f);
+        rbody.AddForce(dirToGo * 1f, ForceMode.VelocityChange);
     }
 
     public override void AgentAction(float[] vectorAction, string textAction)
     {
-        float absDir = 0f;
-        Vector3 dir = Vector3.zero;
-        Vector3 rotateDir = Vector3.zero;
+        MoveAgent(vectorAction);
 
-        if (brain.brainParameters.vectorActionSpaceType == SpaceType.continuous)
-        {
-            absDir = Mathf.Clamp(vectorAction[0], -1f, 1f);
-            // dir += new Vector3(this.transform.position.x * absDir,0,0); 
+        AddReward(-1f / agentParameters.maxStep);
 
-            rotateDir = transform.up * Mathf.Clamp(vectorAction[1], -1f, 1f);
-            dir = new Vector3(absDir * speed,0.0f,0.0f);
-            
+        if(this.transform.position.y < 0){
+            Done();
         }
-        // else
-        // {
-        //     switch ((int)(vectorAction[0]))
-        //     {
-        //         case 1:
-        //             dir = transform.forward;
-        //             break;
-        //         case 2:
-        //             rotateDir = -transform.up;
-        //             break;
-        //         case 3:
-        //             rotateDir = transform.up;
-        //             break;
-        //     }
-        // }
-        rbody.AddForce(dir * speed, ForceMode.VelocityChange);
-        Vector3 localVel = transform.InverseTransformDirection(rbody.velocity);
-        if (localVel.z < 0)
-        {
-            // TODO: Penalize if player goes backward
-        }
-        transform.Rotate(rotateDir, Time.fixedDeltaTime * turnSpeed);
-
-        if(this.transform.position.y < 0.3){
-          Done();
-      }
     }
 }

@@ -211,9 +211,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   broadcastHub:
-    broadcastingBrains: []
+    broadcastingBrains:
+    - {fileID: 11400000, guid: 8c975ca1453feaa41883ecae102b1d0e, type: 2}
+    - {fileID: 11400000, guid: 40808dcb921394b4faa3a05746d581c4, type: 2}
     _brainsToControl: []
-  maxSteps: 0
+  maxSteps: 3000
   trainingConfiguration:
     width: 80
     height: 80
@@ -329,7 +331,7 @@ Transform:
   m_GameObject: {fileID: 1565869062}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 17.255749, y: 17.255749, z: 17.255749}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -472,7 +474,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 64
+  m_Constraints: 80
   m_CollisionDetection: 1
 --- !u!65 &1847984315
 BoxCollider:
