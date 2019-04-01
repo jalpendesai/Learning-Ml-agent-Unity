@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 917126eee6a29524c97900bcbbc6c50b
+ScriptedImporter:
+  fileIDToRecycleName:
+    11400000: Assets/LearningRatIL.nn
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 83221ad3db87f4b3b91b041047cb2bc5, type: 3}
