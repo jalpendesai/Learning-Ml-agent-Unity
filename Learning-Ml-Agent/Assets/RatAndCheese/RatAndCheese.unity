@@ -306,7 +306,8 @@ MonoBehaviour:
     broadcastingBrains:
     - {fileID: 11400000, guid: 8c975ca1453feaa41883ecae102b1d0e, type: 2}
     - {fileID: 11400000, guid: 40808dcb921394b4faa3a05746d581c4, type: 2}
-    _brainsToControl: []
+    _brainsToControl:
+    - {fileID: 11400000, guid: 8c975ca1453feaa41883ecae102b1d0e, type: 2}
   maxSteps: 3000
   trainingConfiguration:
     width: 80
@@ -525,6 +526,7 @@ GameObject:
   - component: {fileID: 1847984314}
   - component: {fileID: 1847984313}
   - component: {fileID: 1847984319}
+  - component: {fileID: 1847984320}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -551,7 +553,7 @@ MonoBehaviour:
     resetOnDone: 1
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
-  speed: 10
+  speed: 1
   Target: {fileID: 1192711641}
 --- !u!54 &1847984314
 Rigidbody:
@@ -653,3 +655,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb172294dbbcc408286b156a2c4b553c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1847984320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1847984312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50f710d360a49461cad67ff5e6bcefe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  record: 1
+  demonstrationName: Rat_Test
