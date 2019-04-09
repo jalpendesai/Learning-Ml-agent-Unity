@@ -1,5 +1,10 @@
 # Learn-Ml-agent-Unity
 
+# Create virtual environment in ANACONDA
+```
+conda create -n env_name python=3.6 anaconda
+```
+
 # Clone Ml-agent and run following command
 ```
 git clone https://github.com/Unity-Technologies/ml-agents.git  
